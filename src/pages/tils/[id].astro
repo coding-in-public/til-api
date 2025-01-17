@@ -1,9 +1,13 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
 const { id } = Astro.params;
 
 const res = await fetch(`http://localhost:4321/api/tils/${id}`);
 const { data, error } = await res.json();
 ---
 
-<h1>{data.title}</h1>
-<p>{data.text}</p>
+<BaseLayout>
+  <h1>{data.title}</h1>
+  <p>{data.text}</p>
+</BaseLayout>

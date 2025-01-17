@@ -1,26 +1,19 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 const res = await fetch("http://localhost:4321/api/tils");
 const { data, error } = await res.json();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro TIL</title>
-  </head>
-  <body>
-    <h1>Astro TIL</h1>
-    <ul>
-      {
-        data.map((til: any) => (
-          <li>
-            <a href={`/tils/${til.id}`}>{til.title}</a>
-          </li>
-        ))
-      }
-    </ul>
-  </body>
-</html>
+<BaseLayout>
+  <h1>Astro TIL</h1>
+  <ul>
+    {
+      data.map((til: any) => (
+        <li>
+          <a href={`/tils/${til.id}`}>{til.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
