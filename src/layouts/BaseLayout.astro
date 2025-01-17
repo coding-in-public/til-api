@@ -13,10 +13,12 @@ const { title = "Astro TIL" } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="grid grid-rows-[auto_1fr_auto] min-h-screen">
-    <nav class="container flex justify-between items-center py-2 border-b">
-      <Link href="/">Home</Link>
-      <Link href="/add">Add</Link>
-    </nav>
+    <div class="py-2 border-b">
+      <nav class="container flex justify-between items-center">
+        <Link href="/">Home</Link>
+        <Link href="/add">Add</Link>
+      </nav>
+    </div>
     <main>
       <div class="container py-4 grid gap-4">
         <slot />
