@@ -23,7 +23,7 @@ Stuff to do in TIL:
 - post route (astro action)
   - ✅ create the action
   - ✅ update add route to use action (ssr)
-  - handle errors in action (ssr)
+  - ✅ handle errors in action (ssr)
 - dynamic routes
   - ✅ get route
   - patch route

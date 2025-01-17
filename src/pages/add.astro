@@ -2,16 +2,18 @@
 import Heading from "@ui/Heading.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AddTilForm from "@/components/AddTilForm.astro";
-import { actions } from "astro:actions";
+import { actions, isInputError } from "astro:actions";
 
 const result = Astro.getActionResult(actions.tils);
 
 if (result?.data) {
   return Astro.redirect(`/tils/${result.data}`);
 }
+
+const errors = isInputError(result?.error) ? result?.error.fields : {};
 ---
 
 <BaseLayout>
   <Heading level="h1" size="lg"> Add a New TIL </Heading>
-  <AddTilForm errors={result?.error} />
+  <AddTilForm errors={errors} />
 </BaseLayout>
