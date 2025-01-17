@@ -18,4 +18,5 @@ Stuff to do in TIL:
   - delete route
 
 ## Refactors
-[...id] for api routes
+- [...id] for api routes
+- use CVA for link styles

@@ -1,4 +1,6 @@
 ---
+import Link from "../components/Link.astro";
+
 const { title = "Astro TIL" } = Astro.props;
 ---
 
@@ -12,8 +14,8 @@ const { title = "Astro TIL" } = Astro.props;
   </head>
   <body>
     <nav class="container flex justify-between items-center py-2 border-b">
-      <a href="/">Home</a>
-      <a href="/add">Add</a>
+      <Link href="/">Home</Link>
+      <Link href="/add">Add</Link>
     </nav>
     <main>
       <slot />
