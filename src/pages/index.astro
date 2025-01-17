@@ -1,5 +1,6 @@
 ---
-
+const res = await fetch("http://localhost:4321/api/tils");
+const { data, error } = await res.json();
 ---
 
 <html lang="en">
@@ -12,5 +13,14 @@
   </head>
   <body>
     <h1>Astro TIL</h1>
+    <ul>
+      {
+        data.map((til: any) => (
+          <li>
+            <a href={`/tils/${til.id}`}>{til.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </body>
 </html>

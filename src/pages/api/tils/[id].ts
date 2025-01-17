@@ -8,14 +8,14 @@ export const GET: APIRoute = async ({ params }) => {
 				.select()
 				.from(Learning)
 				.where(eq(Learning.id, Number(params.id)))
-				.limit(1);
+				.get();
 
 			// if no matching tils, then throw error
-			if (!tils || tils.length === 0) {
+			if (!tils) {
 				throw new Error("No matching TIL found");
 			}
 
-			return new Response(JSON.stringify({ error: null, data: tils[0] }), {
+			return new Response(JSON.stringify({ error: null, data: tils }), {
 				status: 200,
 				headers: {
 					"Content-Type": "application/json",
