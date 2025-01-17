@@ -11,6 +11,10 @@ const { title = "Astro TIL" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <nav class="container flex justify-between items-center py-2 border-b">
+      <a href="/">Home</a>
+      <a href="/add">Add</a>
+    </nav>
     <main>
       <slot />
     </main>
