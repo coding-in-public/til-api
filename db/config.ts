@@ -4,7 +4,7 @@ const Learning = defineTable({
 	columns: {
 		id: column.number({ primaryKey: true }),
 		title: column.text(),
-		text: column.text(),
+		content: column.text(),
 		createdAt: column.date(),
 	},
 });

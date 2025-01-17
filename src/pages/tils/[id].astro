@@ -6,11 +6,15 @@ const { id } = Astro.params;
 
 const res = await fetch(`http://localhost:4321/api/tils/${id}`);
 const { data, error } = await res.json();
+
+if (error) {
+  return Astro.redirect("/");
+}
 ---
 
 <BaseLayout>
   <Heading level="h1" size="lg">
     {data.title}
   </Heading>
-  <p>{data.text}</p>
+  <p>{data.content}</p>
 </BaseLayout>

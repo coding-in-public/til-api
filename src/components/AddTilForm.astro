@@ -2,10 +2,44 @@
 import Input from "@ui/Input.astro";
 import TextArea from "@ui/TextArea.astro";
 import Button from "@ui/Button.astro";
+import { actions } from "astro:actions";
+import type { ActionError } from "astro:actions";
+
+type Props = {
+  errors?: ActionError;
+};
+
+const { errors } = Astro.props;
 ---
 
-<form class="grid gap-4 max-w-md">
+<form
+  action={actions.tils}
+  method="post"
+  class="grid gap-4 max-w-md"
+  id="add-til-form"
+>
   <Input label="Title" autofocus />
-  <TextArea label="Description" />
+  <TextArea label="Content" />
   <Button>Add TIL</Button>
 </form>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const form = document.getElementById("add-til-form");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+
+    const { data, error } = await actions.tils(formData);
+
+    if (error) {
+      console.error(error);
+    }
+
+    if (data) {
+      window.location.href = `/tils/${data}`;
+    }
+  });
+</script>

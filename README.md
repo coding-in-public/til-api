@@ -15,14 +15,14 @@ Stuff to do in TIL:
   - ✅ create button
   - ✅ create form
   - ✅ add to /add route
-  - redirect to added item (ssr)
+  - ✅ redirect to added item (ssr)
   - handle form with client side javascript and validation
   - add extra button so you can add or add+
 
 ## API stuff
 - post route (astro action)
-  - create the action
-  - update add route to use action (ssr)
+  - ✅ create the action
+  - ✅ update add route to use action (ssr)
   - handle errors in action (ssr)
 - dynamic routes
   - ✅ get route
@@ -32,3 +32,6 @@ Stuff to do in TIL:
 ## Refactors
 - [...id] for api routes
 - use CVA for link styles
+- dom purify for html sanitization
+- error states in ui
+- use markdown for content

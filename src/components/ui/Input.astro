@@ -20,6 +20,7 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
       "focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
       error && "border-red-500",
     ]}
+    name={sluggedLabel}
     aria-describedby={error ? `${sluggedLabel}-error` : undefined}
     {...rest}
   />

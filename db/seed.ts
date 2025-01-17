@@ -4,7 +4,7 @@ import { db, Learning } from "astro:db";
 export default async function seed() {
 	await db.insert(Learning).values({
 		title: "Learning",
-		text: "soemthign here",
+		content: "soemthign here",
 		createdAt: new Date(),
 	});
 }
