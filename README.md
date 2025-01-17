@@ -3,8 +3,8 @@ Stuff to do in TIL:
 - ✅ seed db
 
 ## UI stuff
-- layout
-- add nav
+- ✅ layout
+- ✅add nav
 - add footer
 - ✅ display all items home page
 - ✅ dynamic route for each item

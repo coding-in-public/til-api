@@ -12,7 +12,7 @@ const { title = "Astro TIL" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="grid grid-rows-[auto_1fr_auto] min-h-screen">
     <nav class="container flex justify-between items-center py-2 border-b">
       <Link href="/">Home</Link>
       <Link href="/add">Add</Link>
@@ -20,5 +20,8 @@ const { title = "Astro TIL" } = Astro.props;
     <main>
       <slot />
     </main>
+    <footer class="container grid place-items-center py-2 border-t">
+      <small class="text-xs">TIL by Chris Pennington</small>
+    </footer>
   </body>
 </html>

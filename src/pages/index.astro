@@ -6,14 +6,16 @@ const { data, error } = await res.json();
 ---
 
 <BaseLayout>
-  <h1>Astro TIL</h1>
-  <ul>
-    {
-      data.map((til: any) => (
-        <li>
-          <a href={`/tils/${til.id}`}>{til.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="container py-4">
+    <h1>Astro TIL</h1>
+    <ul>
+      {
+        data.map((til: any) => (
+          <li>
+            <a href={`/tils/${til.id}`}>{til.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </BaseLayout>
