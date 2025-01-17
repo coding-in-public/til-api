@@ -26,7 +26,7 @@ Stuff to do in TIL:
   - ✅ handle errors in action (ssr)
 - dynamic routes
   - ✅ get route
-  - delete route
+  - ✅ delete route
   - patch route
 
 ## Refactors
