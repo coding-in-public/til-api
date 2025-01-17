@@ -20,14 +20,14 @@ Stuff to do in TIL:
   - add extra button so you can add or add+
 
 ## API stuff
-- post route (astro action)
+- ✅ post route (astro action)
   - ✅ create the action
   - ✅ update add route to use action (ssr)
   - ✅ handle errors in action (ssr)
 - dynamic routes
   - ✅ get route
-  - patch route
   - delete route
+  - patch route
 
 ## Refactors
 - [...id] for api routes

@@ -46,3 +46,16 @@ export const GET: APIRoute = async ({ params }) => {
 		}),
 	);
 };
+
+export const DELETE: APIRoute = async ({ params }) => {
+	if (params.id) {
+		await db.delete(Learning).where(eq(Learning.id, Number(params.id)));
+	}
+
+	return new Response(JSON.stringify({ message: "TIL deleted" }), {
+		status: 200,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+};
