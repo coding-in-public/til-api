@@ -9,15 +9,21 @@ Stuff to do in TIL:
 - ✅ add heading component
 - ✅ display all items home page
 - ✅ dynamic route for each **item**
-- /add route form
+- ✅ /add route form
   - ✅ create input
   - ✅ create textarea
   - ✅ create button
-  - create form
-  - add to /add route
+  - ✅ create form
+  - ✅ add to /add route
+  - redirect to added item (ssr)
+  - handle form with client side javascript and validation
+  - add extra button so you can add or add+
 
 ## API stuff
 - post route (astro action)
+  - create the action
+  - update add route to use action (ssr)
+  - handle errors in action (ssr)
 - dynamic routes
   - ✅ get route
   - patch route
