@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"h1"> & {
+  level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  size: "sm" | "md" | "lg";
+};
+
+const sizesMap = {
+  sm: "text-2xl",
+  md: "text-3xl",
+  lg: "text-4xl",
+};
+
+const { level, size, ...rest } = Astro.props;
+const Tag = level;
+---
+
+<Tag class:list={[sizesMap[size], "font-bold text-balance"]} {...rest}>
+  <slot />
+</Tag>

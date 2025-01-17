@@ -1,5 +1,5 @@
 ---
-import Link from "../components/Link.astro";
+import Link from "@ui/Link.astro";
 
 const { title = "Astro TIL" } = Astro.props;
 ---
@@ -18,7 +18,9 @@ const { title = "Astro TIL" } = Astro.props;
       <Link href="/add">Add</Link>
     </nav>
     <main>
-      <slot />
+      <div class="container py-4 grid gap-4">
+        <slot />
+      </div>
     </main>
     <footer class="container grid place-items-center py-2 border-t">
       <small class="text-xs">TIL by Chris Pennington</small>

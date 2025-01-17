@@ -4,11 +4,17 @@ Stuff to do in TIL:
 
 ## UI stuff
 - ✅ layout
-- ✅add nav
-- add footer
+- ✅ add nav
+- ✅ add footer
+- ✅ add heading component
 - ✅ display all items home page
-- ✅ dynamic route for each item
+- ✅ dynamic route for each **item**
 - /add route form
+  - create input
+  - create textarea
+  - create button
+  - create form
+  - add to /add route
 
 ## API stuff
 - post route (astro action)

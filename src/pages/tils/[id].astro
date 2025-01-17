@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "@/components/ui/Heading.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const { id } = Astro.params;
 
@@ -8,6 +9,8 @@ const { data, error } = await res.json();
 ---
 
 <BaseLayout>
-  <h1>{data.title}</h1>
+  <Heading level="h1" size="lg">
+    {data.title}
+  </Heading>
   <p>{data.text}</p>
 </BaseLayout>
