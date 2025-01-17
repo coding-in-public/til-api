@@ -10,9 +10,9 @@ Stuff to do in TIL:
 - ✅ display all items home page
 - ✅ dynamic route for each **item**
 - /add route form
-  - create input
-  - create textarea
-  - create button
+  - ✅ create input
+  - ✅ create textarea
+  - ✅ create button
   - create form
   - add to /add route
 

@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"textarea"> & {
+  label?: string;
+  error?: string;
+};
+
+const { label, error, rows = 4, cols = 30, ...rest } = Astro.props;
+
+const sluggedLabel = label?.toLowerCase().replace(" ", "-");
+---
+
+<div class="flex flex-col gap-1">
+  {label && <label class="text-sm font-medium text-gray-700">{label}</label>}
+  <textarea
+    rows={rows}
+    cols={cols}
+    class:list={[
+      "rounded-md border border-gray-300 px-3 py-2",
+      "focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
+      error && "border-red-500",
+    ]}
+    aria-describedby={error ? `${sluggedLabel}-error` : undefined}
+    {...rest}></textarea>
+  {
+    error && (
+      <p class="text-sm text-red-500" id={`${sluggedLabel}-error`}>
+        {error}
+      </p>
+    )
+  }
+</div>

@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"input"> & {
+  label?: string;
+  error?: string;
+};
+
+const { label, error, type = "text", ...rest } = Astro.props;
+
+const sluggedLabel = label?.toLowerCase().replace(" ", "-");
+---
+
+<div class="grid gap-1">
+  {label && <label class="text-sm font-medium text-gray-700">{label}</label>}
+  <input
+    type={type}
+    class:list={[
+      "rounded-md border border-gray-300 px-3 py-2",
+      "focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
+      error && "border-red-500",
+    ]}
+    aria-describedby={error ? `${sluggedLabel}-error` : undefined}
+    {...rest}
+  />
+  {
+    error && (
+      <p class="text-sm text-red-500" id={`${sluggedLabel}-error`}>
+        {error}
+      </p>
+    )
+  }
+</div>
