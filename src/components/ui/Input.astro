@@ -7,6 +7,7 @@ type Props = HTMLAttributes<"input"> & {
 };
 
 const { label, error, type = "text", ...rest } = Astro.props;
+console.log("🚀 ~ error:", error);
 
 const sluggedLabel = label?.toLowerCase().replace(" ", "-");
 ---
@@ -24,11 +25,11 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
     aria-describedby={error ? `${sluggedLabel}-error` : undefined}
     {...rest}
   />
-  {
-    error && (
-      <p class="text-sm text-red-500" id={`${sluggedLabel}-error`}>
-        {error}
-      </p>
-    )
-  }
+
+  <p
+    class={`text-sm text-red-500 ${error ? "block" : "hidden"}`}
+    id={`${sluggedLabel}-error`}
+  >
+    {error}
+  </p>
 </div>

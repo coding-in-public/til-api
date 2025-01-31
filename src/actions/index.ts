@@ -6,7 +6,7 @@ export const server = {
 	tils: defineAction({
 		accept: "form",
 		input: z.object({
-			title: z.string().min(1),
+			title: z.string().min(2),
 			content: z.string().min(10),
 		}),
 		handler: async ({ title, content }) => {

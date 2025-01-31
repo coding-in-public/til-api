@@ -32,6 +32,11 @@ Stuff to do in TIL:
 ## Refactors
 - [...id] for api routes
 - use CVA for link styles
-- dom purify for html sanitization
-- error states in ui
+
+## Today I Fixed
+- UI errors for form
+  - show errors
+  - hide errors on blur
 - use markdown for content
+- dom purify for html sanitization
+- Edit option? (auth?)

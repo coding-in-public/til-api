@@ -24,11 +24,10 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
     ]}
     aria-describedby={error ? `${sluggedLabel}-error` : undefined}
     {...rest}></textarea>
-  {
-    error && (
-      <p class="text-sm text-red-500" id={`${sluggedLabel}-error`}>
-        {error}
-      </p>
-    )
-  }
+  <p
+    class={`text-sm text-red-500 ${error ? "block" : "hidden"}`}
+    id={`${sluggedLabel}-error`}
+  >
+    {error}
+  </p>
 </div>

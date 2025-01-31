@@ -26,7 +26,7 @@ const { errors } = Astro.props;
 </form>
 
 <script>
-  import { actions } from "astro:actions";
+  import { actions, isInputError } from "astro:actions";
 
   const form = document.getElementById("add-til-form");
 
@@ -38,6 +38,18 @@ const { errors } = Astro.props;
 
     if (error) {
       console.error(error);
+      if (isInputError(error)) {
+        for (const [key, value] of Object.entries(error.fields)) {
+          document
+            .querySelector(`[name=${key}]`)
+            ?.classList.add("border-red-500");
+          const errorElement = document.getElementById(`${key}-error`);
+          if (errorElement) {
+            errorElement.classList.remove("hidden");
+            errorElement.textContent = value[0];
+          }
+        }
+      }
     }
 
     if (data) {
