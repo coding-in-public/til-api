@@ -1,6 +1,7 @@
 import { defineAction } from "astro:actions";
 import { db, Learning } from "astro:db";
 import { z } from "astro:schema";
+import sanitizeHtml from "sanitize-html";
 
 export const server = {
 	tils: defineAction({
@@ -13,8 +14,8 @@ export const server = {
 			const learning = await db
 				.insert(Learning)
 				.values({
-					title,
-					content,
+					title: sanitizeHtml(title),
+					content: sanitizeHtml(content),
 					createdAt: new Date(),
 				})
 				.returning({ id: Learning.id });

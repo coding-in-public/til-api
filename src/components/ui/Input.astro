@@ -2,12 +2,11 @@
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"input"> & {
-  label?: string;
+  label: string;
   error?: string;
 };
 
 const { label, error, type = "text", ...rest } = Astro.props;
-console.log("🚀 ~ error:", error);
 
 const sluggedLabel = label?.toLowerCase().replace(" ", "-");
 ---

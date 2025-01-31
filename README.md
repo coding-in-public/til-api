@@ -38,5 +38,6 @@ Stuff to do in TIL:
   - ✅ show errors
   - ✅ hide errors on blur
 - use markdown for content
-- dom purify for html sanitization
+- ✅ dom purify for html sanitization
 - Edit option? (auth?)
+- protect post route

@@ -22,7 +22,7 @@ const { errors } = Astro.props;
 >
   <Input label="Title" autofocus error={errors.title?.[0]} />
   <TextArea label="Content" error={errors.content?.[0]} />
-  <Button>Add TIL</Button>
+  <Button type="submit">Add TIL</Button>
 </form>
 
 <script>
