@@ -4,9 +4,10 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"input"> & {
   label: string;
   error?: string;
+  value?: string;
 };
 
-const { label, error, type = "text", ...rest } = Astro.props;
+const { value, label, error, type = "text", ...rest } = Astro.props;
 
 const sluggedLabel = label?.toLowerCase().replace(" ", "-");
 ---
@@ -20,6 +21,7 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
       "focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
       error && "border-red-500",
     ]}
+    value={value}
     name={sluggedLabel}
     aria-describedby={error ? `${sluggedLabel}-error` : undefined}
     {...rest}

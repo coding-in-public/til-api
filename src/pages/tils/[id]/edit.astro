@@ -1,0 +1,32 @@
+---
+import { actions, isInputError } from "astro:actions";
+import AddTilForm from "@/components/AddTilForm.astro";
+import Heading from "@/components/ui/Heading.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/");
+}
+
+const res = await fetch(`http://localhost:4321/api/tils/${id}`);
+const { data, error } = await res.json();
+
+if (error) {
+  return Astro.redirect("/");
+}
+
+const result = Astro.getActionResult(actions.tils);
+
+if (result?.data) {
+  return Astro.redirect(`/tils/${result.data}`);
+}
+
+const errors = isInputError(result?.error) ? result?.error.fields : {};
+---
+
+<BaseLayout>
+  <Heading level="h1" size="lg">Editing TIL {id}</Heading>
+  <AddTilForm errors={errors} data={{ ...data, id: Number.parseInt(id) }} />
+</BaseLayout>

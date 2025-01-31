@@ -3,11 +3,20 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string | URL;
+  button?: boolean;
 }
 
-const { href, ...rest } = Astro.props;
+const { href, button, ...rest } = Astro.props;
 ---
 
-<a href={href} class="text-blue-500 hover:underline" {...rest}>
+<a
+  href={href}
+  class:list={[
+    button
+      ? "bg-blue-500 text-white px-4 py-1.5 rounded-md"
+      : "text-blue-500 hover:underline",
+  ]}
+  {...rest}
+>
   <slot />
 </a>

@@ -1,8 +1,13 @@
 ---
 import Heading from "@/components/ui/Heading.astro";
+import Link from "@/components/ui/Link.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/");
+}
 
 const res = await fetch(`http://localhost:4321/api/tils/${id}`);
 const { data, error } = await res.json();
@@ -13,8 +18,12 @@ if (error) {
 ---
 
 <BaseLayout>
-  <Heading level="h1" size="lg">
-    {data.title}
-  </Heading>
+  <Link href="/">Back</Link>
+  <div class="flex justify-between items-center">
+    <Heading level="h1" size="lg">
+      {data.title}
+    </Heading>
+    <Link href={`/tils/${id}/edit`} button>Edit</Link>
+  </div>
   <p>{data.content}</p>
 </BaseLayout>

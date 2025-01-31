@@ -4,9 +4,10 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"textarea"> & {
   label?: string;
   error?: string;
+  value?: string;
 };
 
-const { label, error, rows = 4, cols = 30, ...rest } = Astro.props;
+const { label, error, rows = 4, cols = 30, value, ...rest } = Astro.props;
 
 const sluggedLabel = label?.toLowerCase().replace(" ", "-");
 ---
@@ -23,7 +24,8 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
       error && "border-red-500",
     ]}
     aria-describedby={error ? `${sluggedLabel}-error` : undefined}
-    {...rest}></textarea>
+    {...rest}>{value ? value : ""}</textarea
+  >
   <p
     class={`text-sm text-red-500 ${error ? "block" : "hidden"}`}
     id={`${sluggedLabel}-error`}

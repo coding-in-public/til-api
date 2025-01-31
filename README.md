@@ -32,12 +32,13 @@ Stuff to do in TIL:
 ## Refactors
 - [...id] for api routes
 - use CVA for link styles
+- use markdown for content
 
 ## Today I Fixed
 - UI errors for form
   - ✅ show errors
   - ✅ hide errors on blur
-- use markdown for content
 - ✅ dom purify for html sanitization
-- Edit option? (auth?)
+- ✅ Edit option?
+- (auth?)
 - protect post route

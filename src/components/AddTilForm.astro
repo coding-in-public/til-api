@@ -5,13 +5,18 @@ import Button from "@ui/Button.astro";
 import { actions } from "astro:actions";
 
 type Props = {
+  data?: {
+    title: string;
+    content: string;
+    id?: number;
+  };
   errors: {
     title?: string[] | undefined;
     content?: string[] | undefined;
   };
 };
 
-const { errors } = Astro.props;
+const { data, errors } = Astro.props;
 ---
 
 <form
@@ -20,8 +25,14 @@ const { errors } = Astro.props;
   class="grid gap-4 max-w-md"
   id="add-til-form"
 >
-  <Input label="Title" autofocus error={errors.title?.[0]} />
-  <TextArea label="Content" error={errors.content?.[0]} />
+  {data?.id && <input type="hidden" type="number" name="id" value={data.id} />}
+  <Input
+    label="Title"
+    autofocus
+    value={data?.title}
+    error={errors.title?.[0]}
+  />
+  <TextArea label="Content" value={data?.content} error={errors.content?.[0]} />
   <Button type="submit">Add TIL</Button>
 </form>
 
