@@ -59,3 +59,34 @@ export const DELETE: APIRoute = async ({ params }) => {
 		},
 	});
 };
+
+export const PATCH: APIRoute = async ({ params, request }) => {
+	const { title, content } = await request.json();
+	if (!title && !content) {
+		return new Response(
+			JSON.stringify({ error: "Title and content are required" }),
+			{
+				status: 400,
+				headers: {
+					"Content-Type": "application/json",
+				},
+			},
+		);
+	}
+	if (params.id) {
+		await db
+			.update(Learning)
+			.set({
+				...(title && { title }),
+				...(content && { content }),
+			})
+			.where(eq(Learning.id, Number(params.id)));
+	}
+
+	return new Response(JSON.stringify({ message: "TIL updated" }), {
+		status: 200,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+};
