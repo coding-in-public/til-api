@@ -35,8 +35,8 @@ Stuff to do in TIL:
 
 ## Today I Fixed
 - UI errors for form
-  - show errors
-  - hide errors on blur
+  - ✅ show errors
+  - ✅ hide errors on blur
 - use markdown for content
 - dom purify for html sanitization
 - Edit option? (auth?)

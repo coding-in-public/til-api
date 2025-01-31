@@ -31,3 +31,20 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
     {error}
   </p>
 </div>
+
+<script>
+  const textAreas = document.querySelectorAll(
+    "textarea"
+  ) as NodeListOf<HTMLTextAreaElement>;
+  textAreas.forEach((textarea) => {
+    textarea.addEventListener("blur", () => {
+      textarea.classList.remove("border-red-500");
+      const errorElement = document.getElementById(`${textarea.name}-error`);
+      if (errorElement) {
+        errorElement.classList.add("hidden");
+        errorElement.textContent = "";
+        errorElement.classList.remove("block");
+      }
+    });
+  });
+</script>

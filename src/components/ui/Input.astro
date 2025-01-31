@@ -33,3 +33,20 @@ const sluggedLabel = label?.toLowerCase().replace(" ", "-");
     {error}
   </p>
 </div>
+
+<script>
+  const inputs = document.querySelectorAll(
+    "input"
+  ) as NodeListOf<HTMLInputElement>;
+  inputs.forEach((input) => {
+    input.addEventListener("blur", () => {
+      input.classList.remove("border-red-500");
+      const errorElement = document.getElementById(`${input.name}-error`);
+      if (errorElement) {
+        errorElement.classList.add("hidden");
+        errorElement.textContent = "";
+        errorElement.classList.remove("block");
+      }
+    });
+  });
+</script>
